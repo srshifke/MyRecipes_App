@@ -1,5 +1,4 @@
-<h1>All Recipes</h1>
-<hr/>
+<%= render 'shared/page_title', title: "All Recipes" %>
 
 <% @recipes.each do |recipe| %>
 	<div class="row">
@@ -12,7 +11,7 @@
 		</div>
 		
 		<div class="col-lg-8 well">
-			<h4><%= link_to recipe.name, " " %></h4>
+			<h4><%= link_to recipe.name, recipe_path(recipe.id) %></h4>
 			<p><%= recipe.summary %></p>
 			<p>
 				<span class='quiet'><small><%= time_ago_in_words(recipe.created_at) %></small></span>
