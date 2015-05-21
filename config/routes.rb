@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   #delete '/recipes/:id' => 'recipes#destroy'
 
   #the following creates all the above by default
-  resources :recipes
+  resources :recipes do
+    member do
+      post 'like'
+    end
+  end
+
 end
