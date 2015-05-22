@@ -3,7 +3,7 @@ class ChefsController < ApplicationController
 	before_action :require_same_user, only: [:edit, :update]
 
 	def index
-		@chefs = Chef.paginate(page: params[:page], per_page: 1)
+		@chefs = Chef.paginate(page: params[:page], per_page: 5)
 	end
 
 	def new
@@ -36,7 +36,7 @@ class ChefsController < ApplicationController
 	end
 
 	def show
-		@recipes = @chef.recipes.paginate(page: params[:page], per_page: 1)
+		@recipes = @chef.recipes.paginate(page: params[:page], per_page: 5)
 	end
 
 	private
