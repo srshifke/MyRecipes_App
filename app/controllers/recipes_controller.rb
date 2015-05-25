@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
 			flash[:success] = "Your #{vote} was successful."
 		else
 			if current_user == like.recipe.chef
-				flash[:danger] = like.errors.full_messages_for(:like).first[5..-1]
+				flash[:danger] = like.errors.full_messages_for(:like).first[5..-1] # 'Like ' shows up at beginning, it is Error class
 			else
 				flash[:danger] = "You can only vote on a recipe once."
 			end
