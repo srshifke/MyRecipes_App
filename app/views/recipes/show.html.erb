@@ -16,8 +16,12 @@
 			<%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
 		</div>
 		<div class="well">
-			</p><%= "Style".pluralize(@recipe.styles.size) %>: <%= render @recipe.styles %><p>
-			</p><%= "Ingredient".pluralize(@recipe.ingredients.size) %>: <%= render @recipe.ingredients %><p>
+			<% if @recipe.styles.any? %>
+				</p><%= "Style".pluralize(@recipe.styles.size) %>: <%= render @recipe.styles.order(:name) %><p>
+			<% end %>
+			<% if @recipe.ingredients.any? %>
+				</p><%= "Ingredient".pluralize(@recipe.ingredients.size) %>: <%= render @recipe.ingredients.order(:name) %><p>
+			<% end %>
 			<hr/>
 			<p>
 				<strong>Steps:</strong>

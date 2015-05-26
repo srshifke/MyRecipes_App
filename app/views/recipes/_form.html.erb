@@ -13,14 +13,14 @@
 			<%= f.text_area :description, rows: 10 %>
 
 			<strong>Styles:</strong>
-			<%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cbs| %>
-				<% cbs.label(class: "checkbox-inline") { cbs.check_box(class: "checkbox") + cbs.text } %>
+			<%= f.collection_check_boxes :style_ids, Style.all.order(:name), :id, :name do |cbs| %>
+				<% cbs.label(class: "checkbox-inline input_checkbox") { cbs.check_box(class: "checkbox") + cbs.text } %>
 			<% end %>
 			<br/><br/>
 
 			<strong>Ingredients:</strong>
-			<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |cbi| %>
-				<% cbi.label(class: "checkbox-inline") { cbi.check_box(class: "checkbox") + cbi.text } %>
+			<%= f.collection_check_boxes :ingredient_ids, Ingredient.all.order(:name), :id, :name do |cbi| %>
+				<% cbi.label(class: "checkbox-inline input_checkbox") { cbi.check_box(class: "checkbox") + cbi.text } %>
 			<% end %>
 			<br/><br/>
 

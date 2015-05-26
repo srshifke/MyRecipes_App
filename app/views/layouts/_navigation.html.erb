@@ -7,7 +7,7 @@
 					Stlyes <b class="caret"></b>
 				<% end %>
 				<ul class="dropdown-menu">
-					<% Style.all.each do |style| %>
+					<% Style.all.order(:name).each do |style| %>
 						<li><%= link_to style.name, style_path(style) %></li>
 					<% end %>
 					<% if logged_in? %>
@@ -27,7 +27,7 @@
 					Ingredients <b class="caret"></b>
 				<% end %>
 				<ul class="dropdown-menu">
-					<% Ingredient.all.each do |ingredient| %>
+					<% Ingredient.all.order(:name).each do |ingredient| %>
 						<li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
 					<% end %>
 					<% if logged_in? %>
