@@ -1,61 +1,16 @@
-Testing specs for Recipes:
+## TODO ##
 
-name: string
-summary: text
-description: text
+Create ability for users to write reviews:
 
-- name must be present
-- name must be between 5 <= name <= 100 characters
-
-- summary must be present
-- summary must be between 10 <= summary <= 150 characters
-
-- description must be present
-- descritption must be between 20 <= description <= 500 characters
-
-- chef_id must be present
-
-
-Testing specs for Chefs:
-
-chefname: string
-email: string
-
-- chefname must be present
-- chefname must be 3 <= chefname <= 40 characters
-
-- email must be present
-- email must be unique (due to use as login later)
-- email must be valid
-
-
-
-
-
-
-Users (Chef's):
-
-	Already have:
-		- Chef model and validations
- 		- Chef table with columns chefname and email
-
-	Need to do:
- 		- Add passwords to the chefs table so chefs can be authenticated and logged in
- 		- Use email as log in credentials, as email addresses are unique
- 		- Ability to register new chefs to use app
- 		- Ability to display chef's profils
- 		- Ability to display list of all chefs
- 		- Ability for chefs to log in and out of the app
- 		- Restrict actions like create/edit recipe and like features to logged in chefs only
- 		- Restric edit of recipes by chefs who created the recipe
-
-
-Authentication Updates:
-
-1) Show recipe page -> Ability to edit/update only own recipe
-2) Navigation partial -> Toggle Menu, restrict new
-3) Restrict thumbs up and down action to logged_in users only
-4) Recipe - update to current_user
-5) Like - update to current_user, restrict to recipes not created by user
-6) Before_action :require_user, except: [:show, :index]
-7) Before_action :require_some_user for chefs, only: [:edit, :update]
+	1. Migration to create reviews table {body: text_field, chef_id: integer, recipe_id: integer}
+	2. Build Review model
+	3. Need to create tests for the spec, add validatiosn for the review model.
+	4. Build associations, has_many and belongs_to
+	5. Test out assiciations in Rails console
+		-recipe.reviews
+		-chef.reviews
+	6. Configure routes for Reviews (new, create, show)
+	7. Authenticated chefs can create reviews, before_action require_user
+	8. Associate chef_id and recipe_id
+	9. Use existing form code if possible (ie Description)
+	10. Add pagination for all written reviews
